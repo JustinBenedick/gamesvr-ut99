@@ -51,6 +51,18 @@ Due to the shutdown of Gamespy in 2014 and the shutdown of the official master s
 docker run -it --rm --net=host lacledeslan/gamesvr-ut99 /app/ucc server dm-Turbine?game=Botpack.DeathMatchPlus ini=UnrealTournament-Online.ini log=logfile.log -nohomedir
 ```
 
+### Run with specific mutator enabled
+
+Unreal Tournament 99 includes mutators to alter the game play and functionality of the server. However they are not enabled by default. You can simply add "?mutator=mutatorname" to the command string. In this example a mapvoting plugin (?mutator=MapVoteLAv2.BDBMapVote) was added and enabled. Mutators must be nabled and added to the server config file being used.
+
+On the command line it will look like this.
+
+```shell
+docker run -it --rm --net=host lacledeslan/gamesvr-ut99 /app/ucc server dm-Turbine?game=Botpack.DeathMatchPlus?mutator=MapVoteLAv2.BDBMapVote ini=UnrealTournament-Online.ini log=logfile.log -nohomedir -adminconsole -http
+```
+
+
+
 ### Run interactive server with custom config and web interface
 
 Unreal Tournament 99 includes a admin web interface to make it easy to change maps, game options, playlists, ban players, etc. By default this option is not enabled and can be turned on with adding "-adminconsole" and "-http" to the command line and enable via the [config file](https://github.com/LacledesLAN/gamesvr-ut99/blob/master/dist.linux/System/UnrealTournament.ini).
